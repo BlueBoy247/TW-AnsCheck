@@ -189,6 +189,8 @@ function gsatAnswer(){
         let ansId = '';
         let ans = '';
         let ansBlock = null;
+        let multi = 0;
+        let multiScore = 0;
         let range = 0;
         let errorMes = ''
         if(sub['gCh'].checked){
@@ -204,7 +206,28 @@ function gsatAnswer(){
                 ansBlock = document.getElementById(ansId);
                 ans = ansBlock.value;
                 if(correctAns[i] != "/"){
-                    if(correctAns[i] == ans){
+                    if(typeof correctAns[i] == 'object'){
+                        multi = 0;
+                        for(let j=0;j<ans.length;j++){
+                            for(let k=0;k<correctAns[i][1].length;k++){
+                                if(ans[j]==correctAns[i][1][k]){
+                                    multi += 1;
+                                    break;
+                                }
+                            }
+                        }
+                        if(multi == correctAns[i][1].length){
+                            score += scoreData[i];
+                            ansBlock.style.backgroundColor = "LightGreen";
+                        }else if(multi > 0){
+                            multiScore = correctAns[i][0]>2*Math.abs(correctAns[i][1].length-multi) ? scoreData[i]*(correctAns[i][0]-2*Math.abs(correctAns[i][1].length-multi)) : 0;
+                            multiScore /= correctAns[i][0];
+                            score += multiScore;
+                            correctAns[i][0]>2*Math.abs(correctAns[i][1].length-1-multi) ? ansBlock.style.backgroundColor = "LightYellow" : ansBlock.style.backgroundColor = "LightPink";
+                        }else{
+                            ansBlock.style.backgroundColor = "LightPink";
+                        }
+                    }else if(correctAns[i] == ans){
                         score += scoreData[i];
                         ansBlock.style.backgroundColor = "LightGreen";
                     }else{
@@ -215,7 +238,7 @@ function gsatAnswer(){
                         score += scoreData[i];
                         ansBlock.style.backgroundColor = "LightGreen";
                     }else if(ans < scoreData[i] && ans > 0){
-                        score += ans;
+                        score += Number(ans);
                         ansBlock.style.backgroundColor = "LightYellow";
                     }else if(ans > scoreData[i] || ans < 0){
                         errorMes += "國文第"+(i+1)+"題分數輸入錯誤\n";
@@ -228,14 +251,13 @@ function gsatAnswer(){
             for(let i=0;i<2;i++){
                 ansId = 'Ch-w'+(i+1);
                 ansBlock = document.getElementById(ansId);
-                ans = ansBlock.value;
-                console.log(ans);
+                ans = Number(ansBlock.value);
                 if(ans == scoreData[40+i]){
                     score += scoreData[40+i];
                     ansBlock.style.backgroundColor = "LightGreen";
                 }else if(ans < scoreData[40+i] && ans > 0){
                     score += ans;
-                    ansBlock.style.backgroundColor = "Yellow";
+                    ansBlock.style.backgroundColor = "LightYellow";
                 }else if(ans > scoreData[i] || ans < 0){
                     errorMes += "國文作文"+(i+1)+"分數輸入錯誤\n";
                 }else{
@@ -260,7 +282,28 @@ function gsatAnswer(){
                 ansBlock = document.getElementById(ansId);
                 ans = ansBlock.value;
                 if(correctAns[i] != "/"){
-                    if(correctAns[i] == ans){
+                    if(typeof correctAns[i] == 'object'){
+                        multi = 0;
+                        for(let j=0;j<ans.length;j++){
+                            for(let k=0;k<correctAns[i][1].length;k++){
+                                if(ans[j]==correctAns[i][1][k]){
+                                    multi += 1;
+                                    break;
+                                }
+                            }
+                        }
+                        if(multi == correctAns[i][1].length){
+                            score += scoreData[i];
+                            ansBlock.style.backgroundColor = "LightGreen";
+                        }else if(multi > 0){
+                            multiScore = correctAns[i][0]>2*Math.abs(correctAns[i][1].length-multi) ? scoreData[i]*(correctAns[i][0]-2*Math.abs(correctAns[i][1].length-multi)) : 0;
+                            multiScore /= correctAns[i][0];
+                            score += multiScore;
+                            correctAns[i][0]>2*Math.abs(correctAns[i][1].length-1-multi) ? ansBlock.style.backgroundColor = "LightYellow" : ansBlock.style.backgroundColor = "LightPink";
+                        }else{
+                            ansBlock.style.backgroundColor = "LightPink";
+                        }
+                    }else if(correctAns[i] == ans){
                         score += scoreData[i];
                         ansBlock.style.backgroundColor = "LightGreen";
                     }else{
@@ -271,7 +314,7 @@ function gsatAnswer(){
                         score += scoreData[i];
                         ansBlock.style.backgroundColor = "LightGreen";
                     }else if(ans < scoreData[i] && ans > 0){
-                        score += ans;
+                        score += Number(ans);
                         ansBlock.style.backgroundColor = "LightYellow";
                     }else if(ans > scoreData[i] || ans < 0){
                         errorMes += "英文第"+(i+1)+"題分數輸入錯誤\n";
@@ -283,7 +326,7 @@ function gsatAnswer(){
             for(let i=0;i<2;i++){
                 ansId = 'En-w'+(i+1);
                 ansBlock = document.getElementById(ansId);
-                ans = ansBlock.value;
+                ans = Number(ansBlock.value);
                 if(ans == scoreData[50+i]){
                     score += scoreData[50+i];
                     ansBlock.style.backgroundColor = "LightGreen";
@@ -314,7 +357,28 @@ function gsatAnswer(){
                 ansBlock = document.getElementById(ansId);
                 ans = ansBlock.value;
                 if(correctAns[i] != "/"){
-                    if(correctAns[i] == ans){
+                    if(typeof correctAns[i] == 'object'){
+                        multi = 0;
+                        for(let j=0;j<ans.length;j++){
+                            for(let k=0;k<correctAns[i][1].length;k++){
+                                if(ans[j]==correctAns[i][1][k]){
+                                    multi += 1;
+                                    break;
+                                }
+                            }
+                        }
+                        if(multi == correctAns[i][1].length){
+                            score += scoreData[i];
+                            ansBlock.style.backgroundColor = "LightGreen";
+                        }else if(multi > 0){
+                            multiScore = correctAns[i][0]>2*Math.abs(correctAns[i][1].length-multi) ? scoreData[i]*(correctAns[i][0]-2*Math.abs(correctAns[i][1].length-multi)) : 0;
+                            multiScore /= correctAns[i][0];
+                            score += multiScore;
+                            correctAns[i][0]>2*Math.abs(correctAns[i][1].length-1-multi) ? ansBlock.style.backgroundColor = "LightYellow" : ansBlock.style.backgroundColor = "LightPink";
+                        }else{
+                            ansBlock.style.backgroundColor = "LightPink";
+                        }
+                    }else if(correctAns[i] == ans){
                         score += scoreData[i];
                         ansBlock.style.backgroundColor = "LightGreen";
                     }else{
@@ -325,7 +389,7 @@ function gsatAnswer(){
                         score += scoreData[i];
                         ansBlock.style.backgroundColor = "LightGreen";
                     }else if(ans < scoreData[i] && ans > 0){
-                        score += ans;
+                        score += Number(ans);
                         ansBlock.style.backgroundColor = "LightYellow";
                     }else if(ans > scoreData[i] || ans < 0){
                         errorMes += "數學第"+(i+1)+"題分數輸入錯誤\n";
@@ -352,7 +416,28 @@ function gsatAnswer(){
                 ansBlock = document.getElementById(ansId);
                 ans = ansBlock.value;
                 if(correctAns[i] != "/"){
-                    if(correctAns[i] == ans){
+                    if(typeof correctAns[i] == 'object'){
+                        multi = 0;
+                        for(let j=0;j<ans.length;j++){
+                            for(let k=0;k<correctAns[i][1].length;k++){
+                                if(ans[j]==correctAns[i][1][k]){
+                                    multi += 1;
+                                    break;
+                                }
+                            }
+                        }
+                        if(multi == correctAns[i][1].length){
+                            score += scoreData[i];
+                            ansBlock.style.backgroundColor = "LightGreen";
+                        }else if(multi > 0){
+                            multiScore = correctAns[i][0]>2*Math.abs(correctAns[i][1].length-multi) ? scoreData[i]*(correctAns[i][0]-2*Math.abs(correctAns[i][1].length-multi)) : 0;
+                            multiScore /= correctAns[i][0];
+                            score += multiScore;
+                            correctAns[i][0]>2*Math.abs(correctAns[i][1].length-1-multi) ? ansBlock.style.backgroundColor = "LightYellow" : ansBlock.style.backgroundColor = "LightPink";
+                        }else{
+                            ansBlock.style.backgroundColor = "LightPink";
+                        }
+                    }else if(correctAns[i] == ans){
                         score += scoreData[i];
                         ansBlock.style.backgroundColor = "LightGreen";
                     }else{
@@ -363,7 +448,7 @@ function gsatAnswer(){
                         score += scoreData[i];
                         ansBlock.style.backgroundColor = "LightGreen";
                     }else if(ans < scoreData[i] && ans > 0){
-                        score += ans;
+                        score += Number(ans);
                         ansBlock.style.backgroundColor = "LightYellow";
                     }else if(ans > scoreData[i] || ans < 0){
                         errorMes += "數學第"+(i+1)+"題分數輸入錯誤\n";
@@ -390,7 +475,28 @@ function gsatAnswer(){
                 ansBlock = document.getElementById(ansId);
                 ans = ansBlock.value;
                 if(correctAns[i] != "/"){
-                    if(correctAns[i] == ans){
+                    if(typeof correctAns[i] == 'object'){
+                        multi = 0;
+                        for(let j=0;j<ans.length;j++){
+                            for(let k=0;k<correctAns[i][1].length;k++){
+                                if(ans[j]==correctAns[i][1][k]){
+                                    multi += 1;
+                                    break;
+                                }
+                            }
+                        }
+                        if(multi == correctAns[i][1].length){
+                            score += scoreData[i];
+                            ansBlock.style.backgroundColor = "LightGreen";
+                        }else if(multi > 0){
+                            multiScore = correctAns[i][0]>2*Math.abs(correctAns[i][1].length-multi) ? scoreData[i]*(correctAns[i][0]-2*Math.abs(correctAns[i][1].length-multi)) : 0;
+                            multiScore /= correctAns[i][0];
+                            score += multiScore;
+                            correctAns[i][0]>2*Math.abs(correctAns[i][1].length-1-multi) ? ansBlock.style.backgroundColor = "LightYellow" : ansBlock.style.backgroundColor = "LightPink";
+                        }else{
+                            ansBlock.style.backgroundColor = "LightPink";
+                        }
+                    }else if(correctAns[i] == ans){
                         score += scoreData[i];
                         ansBlock.style.backgroundColor = "LightGreen";
                     }else{
@@ -401,7 +507,7 @@ function gsatAnswer(){
                         score += scoreData[i];
                         ansBlock.style.backgroundColor = "LightGreen";
                     }else if(ans < scoreData[i] && ans > 0){
-                        score += ans;
+                        score += Number(ans);
                         ansBlock.style.backgroundColor = "LightYellow";
                     }else if(ans > scoreData[i] || ans < 0){
                         errorMes += "社會第"+(i+1)+"題分數輸入錯誤\n";
@@ -428,7 +534,28 @@ function gsatAnswer(){
                 ansBlock = document.getElementById(ansId);
                 ans = ansBlock.value;
                 if(correctAns[i] != "/"){
-                    if(correctAns[i] == ans){
+                    if(typeof correctAns[i] == 'object'){
+                        multi = 0;
+                        for(let j=0;j<ans.length;j++){
+                            for(let k=0;k<correctAns[i][1].length;k++){
+                                if(ans[j]==correctAns[i][1][k]){
+                                    multi += 1;
+                                    break;
+                                }
+                            }
+                        }
+                        if(multi == correctAns[i][1].length){
+                            score += scoreData[i];
+                            ansBlock.style.backgroundColor = "LightGreen";
+                        }else if(multi > 0){
+                            multiScore = correctAns[i][0]>2*Math.abs(correctAns[i][1].length-multi) ? scoreData[i]*(correctAns[i][0]-2*Math.abs(correctAns[i][1].length-multi)) : 0;
+                            multiScore /= correctAns[i][0];
+                            score += multiScore;
+                            correctAns[i][0]>2*Math.abs(correctAns[i][1].length-1-multi) ? ansBlock.style.backgroundColor = "LightYellow" : ansBlock.style.backgroundColor = "LightPink";
+                        }else{
+                            ansBlock.style.backgroundColor = "LightPink";
+                        }
+                    }else if(correctAns[i] == ans){
                         score += scoreData[i];
                         ansBlock.style.backgroundColor = "LightGreen";
                     }else{
@@ -439,7 +566,7 @@ function gsatAnswer(){
                         score += scoreData[i];
                         ansBlock.style.backgroundColor = "LightGreen";
                     }else if(ans < scoreData[i] && ans > 0){
-                        score += ans;
+                        score += Number(ans);
                         ansBlock.style.backgroundColor = "LightYellow";
                     }else if(ans > scoreData[i] || ans < 0){
                         errorMes += "自然第"+(i+1)+"題分數輸入錯誤";
@@ -495,7 +622,28 @@ function astAnswer(){
                 ansBlock = document.getElementById(ansId);
                 ans = ansBlock.value;
                 if(correctAns[i] != "/"){
-                    if(correctAns[i] == ans){
+                    if(typeof correctAns[i] == 'object'){
+                        multi = 0;
+                        for(let j=0;j<ans.length;j++){
+                            for(let k=0;k<correctAns[i][1].length;k++){
+                                if(ans[j]==correctAns[i][1][k]){
+                                    multi += 1;
+                                    break;
+                                }
+                            }
+                        }
+                        if(multi == correctAns[i][1].length){
+                            score += scoreData[i];
+                            ansBlock.style.backgroundColor = "LightGreen";
+                        }else if(multi > 0){
+                            multiScore = correctAns[i][0]>2*Math.abs(correctAns[i][1].length-multi) ? scoreData[i]*(correctAns[i][0]-2*Math.abs(correctAns[i][1].length-multi)) : 0;
+                            multiScore /= correctAns[i][0];
+                            score += multiScore;
+                            correctAns[i][0]>2*Math.abs(correctAns[i][1].length-1-multi) ? ansBlock.style.backgroundColor = "LightYellow" : ansBlock.style.backgroundColor = "LightPink";
+                        }else{
+                            ansBlock.style.backgroundColor = "LightPink";
+                        }
+                    }else if(correctAns[i] == ans){
                         score += scoreData[i];
                         ansBlock.style.backgroundColor = "LightGreen";
                     }else{
@@ -506,7 +654,7 @@ function astAnswer(){
                         score += scoreData[i];
                         ansBlock.style.backgroundColor = "LightGreen";
                     }else if(ans < scoreData[i] && ans > 0){
-                        score += ans;
+                        score += Number(ans);
                         ansBlock.style.backgroundColor = "LightYellow";
                     }else if(ans > scoreData[i] || ans < 0){
                         errorMes += "數甲第"+(i+1)+"題分數輸入錯誤\n";
@@ -532,7 +680,28 @@ function astAnswer(){
                 ansBlock = document.getElementById(ansId);
                 ans = ansBlock.value;
                 if(correctAns[i] != "/"){
-                    if(correctAns[i] == ans){
+                    if(typeof correctAns[i] == 'object'){
+                        multi = 0;
+                        for(let j=0;j<ans.length;j++){
+                            for(let k=0;k<correctAns[i][1].length;k++){
+                                if(ans[j]==correctAns[i][1][k]){
+                                    multi += 1;
+                                    break;
+                                }
+                            }
+                        }
+                        if(multi == correctAns[i][1].length){
+                            score += scoreData[i];
+                            ansBlock.style.backgroundColor = "LightGreen";
+                        }else if(multi > 0){
+                            multiScore = correctAns[i][0]>2*Math.abs(correctAns[i][1].length-multi) ? scoreData[i]*(correctAns[i][0]-2*Math.abs(correctAns[i][1].length-multi)) : 0;
+                            multiScore /= correctAns[i][0];
+                            score += multiScore;
+                            correctAns[i][0]>2*Math.abs(correctAns[i][1].length-1-multi) ? ansBlock.style.backgroundColor = "LightYellow" : ansBlock.style.backgroundColor = "LightPink";
+                        }else{
+                            ansBlock.style.backgroundColor = "LightPink";
+                        }
+                    }else if(correctAns[i] == ans){
                         score += scoreData[i];
                         ansBlock.style.backgroundColor = "LightGreen";
                     }else{
@@ -543,7 +712,7 @@ function astAnswer(){
                         score += scoreData[i];
                         ansBlock.style.backgroundColor = "LightGreen";
                     }else if(ans < scoreData[i] && ans > 0){
-                        score += ans;
+                        score += Number(ans);
                         ansBlock.style.backgroundColor = "LightYellow";
                     }else if(ans > scoreData[i] || ans < 0){
                         errorMes += "歷史第"+(i+1)+"題分數輸入錯誤\n";
@@ -569,7 +738,28 @@ function astAnswer(){
                 ansBlock = document.getElementById(ansId);
                 ans = ansBlock.value;
                 if(correctAns[i] != "/"){
-                    if(correctAns[i] == ans){
+                    if(typeof correctAns[i] == 'object'){
+                        multi = 0;
+                        for(let j=0;j<ans.length;j++){
+                            for(let k=0;k<correctAns[i][1].length;k++){
+                                if(ans[j]==correctAns[i][1][k]){
+                                    multi += 1;
+                                    break;
+                                }
+                            }
+                        }
+                        if(multi == correctAns[i][1].length){
+                            score += scoreData[i];
+                            ansBlock.style.backgroundColor = "LightGreen";
+                        }else if(multi > 0){
+                            multiScore = correctAns[i][0]>2*Math.abs(correctAns[i][1].length-multi) ? scoreData[i]*(correctAns[i][0]-2*Math.abs(correctAns[i][1].length-multi)) : 0;
+                            multiScore /= correctAns[i][0];
+                            score += multiScore;
+                            correctAns[i][0]>2*Math.abs(correctAns[i][1].length-1-multi) ? ansBlock.style.backgroundColor = "LightYellow" : ansBlock.style.backgroundColor = "LightPink";
+                        }else{
+                            ansBlock.style.backgroundColor = "LightPink";
+                        }
+                    }else if(correctAns[i] == ans){
                         score += scoreData[i];
                         ansBlock.style.backgroundColor = "LightGreen";
                     }else{
@@ -580,7 +770,7 @@ function astAnswer(){
                         score += scoreData[i];
                         ansBlock.style.backgroundColor = "LightGreen";
                     }else if(ans < scoreData[i] && ans > 0){
-                        score += ans;
+                        score += Number(ans);
                         ansBlock.style.backgroundColor = "LightYellow";
                     }else if(ans > scoreData[i] || ans < 0){
                         errorMes += "地理第"+(i+1)+"題分數輸入錯誤\n";
@@ -606,7 +796,28 @@ function astAnswer(){
                 ansBlock = document.getElementById(ansId);
                 ans = ansBlock.value;
                 if(correctAns[i] != "/"){
-                    if(correctAns[i] == ans){
+                    if(typeof correctAns[i] == 'object'){
+                        multi = 0;
+                        for(let j=0;j<ans.length;j++){
+                            for(let k=0;k<correctAns[i][1].length;k++){
+                                if(ans[j]==correctAns[i][1][k]){
+                                    multi += 1;
+                                    break;
+                                }
+                            }
+                        }
+                        if(multi == correctAns[i][1].length){
+                            score += scoreData[i];
+                            ansBlock.style.backgroundColor = "LightGreen";
+                        }else if(multi > 0){
+                            multiScore = correctAns[i][0]>2*Math.abs(correctAns[i][1].length-multi) ? scoreData[i]*(correctAns[i][0]-2*Math.abs(correctAns[i][1].length-multi)) : 0;
+                            multiScore /= correctAns[i][0];
+                            score += multiScore;
+                            correctAns[i][0]>2*Math.abs(correctAns[i][1].length-1-multi) ? ansBlock.style.backgroundColor = "LightYellow" : ansBlock.style.backgroundColor = "LightPink";
+                        }else{
+                            ansBlock.style.backgroundColor = "LightPink";
+                        }
+                    }else if(correctAns[i] == ans){
                         score += scoreData[i];
                         ansBlock.style.backgroundColor = "LightGreen";
                     }else{
@@ -617,7 +828,7 @@ function astAnswer(){
                         score += scoreData[i];
                         ansBlock.style.backgroundColor = "LightGreen";
                     }else if(ans < scoreData[i] && ans > 0){
-                        score += ans;
+                        score += Number(ans);
                         ansBlock.style.backgroundColor = "LightYellow";
                     }else if(ans > scoreData[i] || ans < 0){
                         errorMes += "公民第"+(i+1)+"題分數輸入錯誤\n";
@@ -643,7 +854,28 @@ function astAnswer(){
                 ansBlock = document.getElementById(ansId);
                 ans = ansBlock.value;
                 if(correctAns[i] != "/"){
-                    if(correctAns[i] == ans){
+                    if(typeof correctAns[i] == 'object'){
+                        multi = 0;
+                        for(let j=0;j<ans.length;j++){
+                            for(let k=0;k<correctAns[i][1].length;k++){
+                                if(ans[j]==correctAns[i][1][k]){
+                                    multi += 1;
+                                    break;
+                                }
+                            }
+                        }
+                        if(multi == correctAns[i][1].length){
+                            score += scoreData[i];
+                            ansBlock.style.backgroundColor = "LightGreen";
+                        }else if(multi > 0){
+                            multiScore = correctAns[i][0]>2*Math.abs(correctAns[i][1].length-multi) ? scoreData[i]*(correctAns[i][0]-2*Math.abs(correctAns[i][1].length-multi)) : 0;
+                            multiScore /= correctAns[i][0];
+                            score += multiScore;
+                            correctAns[i][0]>2*Math.abs(correctAns[i][1].length-1-multi) ? ansBlock.style.backgroundColor = "LightYellow" : ansBlock.style.backgroundColor = "LightPink";
+                        }else{
+                            ansBlock.style.backgroundColor = "LightPink";
+                        }
+                    }else if(correctAns[i] == ans){
                         score += scoreData[i];
                         ansBlock.style.backgroundColor = "LightGreen";
                     }else{
@@ -654,7 +886,7 @@ function astAnswer(){
                         score += scoreData[i];
                         ansBlock.style.backgroundColor = "LightGreen";
                     }else if(ans < scoreData[i] && ans > 0){
-                        score += ans;
+                        score += Number(ans);
                         ansBlock.style.backgroundColor = "LightYellow";
                     }else if(ans > scoreData[i] || ans < 0){
                         errorMes += "物理第"+(i+1)+"題分數輸入錯誤\n";
@@ -680,7 +912,28 @@ function astAnswer(){
                 ansBlock = document.getElementById(ansId);
                 ans = ansBlock.value;
                 if(correctAns[i] != "/"){
-                    if(correctAns[i] == ans){
+                    if(typeof correctAns[i] == 'object'){
+                        multi = 0;
+                        for(let j=0;j<ans.length;j++){
+                            for(let k=0;k<correctAns[i][1].length;k++){
+                                if(ans[j]==correctAns[i][1][k]){
+                                    multi += 1;
+                                    break;
+                                }
+                            }
+                        }
+                        if(multi == correctAns[i][1].length){
+                            score += scoreData[i];
+                            ansBlock.style.backgroundColor = "LightGreen";
+                        }else if(multi > 0){
+                            multiScore = correctAns[i][0]>2*Math.abs(correctAns[i][1].length-multi) ? scoreData[i]*(correctAns[i][0]-2*Math.abs(correctAns[i][1].length-multi)) : 0;
+                            multiScore /= correctAns[i][0];
+                            score += multiScore;
+                            correctAns[i][0]>2*Math.abs(correctAns[i][1].length-1-multi) ? ansBlock.style.backgroundColor = "LightYellow" : ansBlock.style.backgroundColor = "LightPink";
+                        }else{
+                            ansBlock.style.backgroundColor = "LightPink";
+                        }
+                    }else if(correctAns[i] == ans){
                         score += scoreData[i];
                         ansBlock.style.backgroundColor = "LightGreen";
                     }else{
@@ -691,7 +944,7 @@ function astAnswer(){
                         score += scoreData[i];
                         ansBlock.style.backgroundColor = "LightGreen";
                     }else if(ans < scoreData[i] && ans > 0){
-                        score += ans;
+                        score += Number(ans);
                         ansBlock.style.backgroundColor = "LightYellow";
                     }else if(ans > scoreData[i] || ans < 0){
                         errorMes += "化學第"+(i+1)+"題分數輸入錯誤";
@@ -717,7 +970,28 @@ function astAnswer(){
                 ansBlock = document.getElementById(ansId);
                 ans = ansBlock.value;
                 if(correctAns[i] != "/"){
-                    if(correctAns[i] == ans){
+                    if(typeof correctAns[i] == 'object'){
+                        multi = 0;
+                        for(let j=0;j<ans.length;j++){
+                            for(let k=0;k<correctAns[i][1].length;k++){
+                                if(ans[j]==correctAns[i][1][k]){
+                                    multi += 1;
+                                    break;
+                                }
+                            }
+                        }
+                        if(multi == correctAns[i][1].length){
+                            score += scoreData[i];
+                            ansBlock.style.backgroundColor = "LightGreen";
+                        }else if(multi > 0){
+                            multiScore = correctAns[i][0]>2*Math.abs(correctAns[i][1].length-multi) ? scoreData[i]*(correctAns[i][0]-2*Math.abs(correctAns[i][1].length-multi)) : 0;
+                            multiScore /= correctAns[i][0];
+                            score += multiScore;
+                            correctAns[i][0]>2*Math.abs(correctAns[i][1].length-1-multi) ? ansBlock.style.backgroundColor = "LightYellow" : ansBlock.style.backgroundColor = "LightPink";
+                        }else{
+                            ansBlock.style.backgroundColor = "LightPink";
+                        }
+                    }else if(correctAns[i] == ans){
                         score += scoreData[i];
                         ansBlock.style.backgroundColor = "LightGreen";
                     }else{
@@ -728,7 +1002,7 @@ function astAnswer(){
                         score += scoreData[i];
                         ansBlock.style.backgroundColor = "LightGreen";
                     }else if(ans < scoreData[i] && ans > 0){
-                        score += ans;
+                        score += Number(ans);
                         ansBlock.style.backgroundColor = "LightYellow";
                     }else if(ans > scoreData[i] || ans < 0){
                         errorMes += "自然第"+(i+1)+"題分數輸入錯誤";

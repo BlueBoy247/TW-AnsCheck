@@ -33,7 +33,7 @@
                 <button class="nav-link" id="gsat-tab" data-bs-toggle="tab" data-bs-target="#gsat" type="button" role="tab" aria-controls="gsat" aria-selected="false">學測</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link disabled" id="ast-tab" data-bs-toggle="tab" data-bs-target="#ast" type="button" role="tab" aria-controls="ast" aria-selected="false">分科</button>
+                <button class="nav-link" id="ast-tab" data-bs-toggle="tab" data-bs-target="#ast" type="button" role="tab" aria-controls="ast" aria-selected="false">分科</button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link disabled" id="cap-tab" data-bs-toggle="tab" data-bs-target="#cap" type="button" role="tab" aria-controls="cap" aria-selected="false">會考</button>
@@ -44,8 +44,8 @@
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active p-3" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <h2>使用說明</h2>
-                <p>請依下方說明及參考下方範例進行填答，否則可能導致最終核對結果有誤。若無該題，請直接空白即可</p>
                 <p>
+                    請依下方說明及參考下方範例進行填答，否則可能導致最終核對結果有誤。若無該題，請直接空白即可。<br>
                     <span class="fw-bold">單選題部分</span><br>
                     請將填寫之選項填入對應題號的填答框。如填寫之選項為<span class="bg-info">A</span>，則填答為：<input type="text" id="ex-01" class="form-control d-inline" aria-describedby="example-01" value="A" readonly>。<br>
                     <span class="fw-bold">多選題部分</span><br>
@@ -53,32 +53,19 @@
                     <span class="fw-bold">選填題部分</span><br>
                     請將填寫之答案填入對應題號的填答框，答案間無須逗號分隔。如填寫之答案為<span class="bg-info">-,3,3</span>，則填答為：<input type="text" id="ex-03" class="form-control d-inline" aria-describedby="example-03" value="-33" readonly>。<br>
                     <span class="fw-bold">非選題部分</span><br>
-                    請將得分填入對應題號的填答框。如該題得到6分，則填答為：<input type="text" id="ex-03" class="form-control d-inline" aria-describedby="example-03" value="6" readonly>或<input type="text" id="ex-03" class="form-control d-inline" aria-describedby="example-03" value="6.0" readonly>。
+                    請將得分填入對應題號的填答框。如該題得到6分，則填答為：<input type="text" id="ex-04" class="form-control d-inline" aria-describedby="example-04" value="6" readonly>或<input type="text" id="ex-05" class="form-control d-inline" aria-describedby="example-05" value="6.0" readonly>。
                 </p>
                 <h2>問題反饋</h2>
                 <p>
-                    如您使用本網站時遇到任何問題，可採取以下方式：
-                    <ol>
-                        <li>至本專案之GitHub repo提出issue，<a href="https://github.com/BlueBoy247/TW-AnsCheck/issues/new" target="_blank">請點此</a>（需有GitHub帳號）</li>
-                        <li>寄信至<a href="mailto:uudenden.fly+ongithub@gmail.com" target="_blank">uudenden.fly+ongithub@gmail.com</a>，主旨請填「臺灣升學考試對答網-問題反饋」</li>
-                        <li>至我的個人網站填寫<a href="https://blueboy247.github.io/about/#form" target="_blank">聯絡表單</a>，聯絡目的請選「一般聯絡」</li>
-                    </ol>
+                    如您使用本網站時遇到任何問題，<a href="https://github.com/BlueBoy247/TW-AnsCheck#%E5%95%8F%E9%A1%8C%E5%8F%8D%E9%A5%8B">請點此查看反饋方式</a>。
                 </p>
                 <h2>協助更新</h2>
                 <p>
-                    因為升學考試每年皆有舉辦，每年都須製作應屆JSON檔案，若您願意協助製作，可採取以下方式：
-                    <ol>
-                        <li>將完成的檔案寄至<a href="mailto:uudenden.fly+ongithub@gmail.com" target="_blank">uudenden.fly+ongithub@gmail.com</a>，主旨請填「臺灣升學考試對答網-JSON資料」</li>
-                        <li>將本專案fork至您的個人GitHub，添加新的JSON檔後進行Pull Request（需有GitHub帳號）</li>
-                    </ol>
-                    JSON檔案模板<a href="https://github.com/BlueBoy247/TW-AnsCheck/tree/main/templates" target="_blank">請點此</a>。
+                    因為升學考試每年皆有舉辦，每年都須製作應屆JSON檔案，若您願意協助製作，<a href="https://github.com/BlueBoy247/TW-AnsCheck#%E5%8D%94%E5%8A%A9%E6%9B%B4%E6%96%B0">請點此查看說明</a>。
                 </p>
-                <h3>JSON檔案說明</h3>
+                <h2>贊助專案</h2>
                 <p>
-                    單選題答案為字串形式，範例：<span class="bg-warning">"A"</span>。<br>
-                    多選題答案為陣列形式，範例：<span class="bg-warning">["B","C","E"]</span>、<span class="bg-warning">["2","3","5"]</span>。<br>
-                    選填題答案為字串形式，範例：<span class="bg-warning">"-33"</span>、<span class="bg-warning">"1445"</span>。<br>
-                    非選題請輸入<span class="bg-warning">"/"</span>，多餘的選項維持<span class="bg-warning">""</span>、分數維持0分即可即可。
+                    如您願意贊助本專案，<a href="https://paypal.me/blueboy2472779">請點此</a>。欲指定贊助款項用途，請於說明欄填寫「贊助臺灣升學考試對答網」。
                 </p>
                 <h2>相關連結</h2>
                 <p>
@@ -98,18 +85,18 @@
                     <option value="113">113</option>
                 </select>
                 <div>
-                    <label class="form-check-label" for="subject">選擇考科：</label>
-                    <input class="form-check-input" type="checkbox" name="gCh" onchange="gsatCheck(this,'Ch')" checked>
+                    <span>選擇考科：</span>
+                    <input class="form-check-input" type="checkbox" name="gCh" id="gCh" onchange="gsatCheck(this,'Ch')" checked>
                     <label class="form-check-label" for="gCh">國文</label>
-                    <input class="form-check-input" type="checkbox" name="gEn" onchange="gsatCheck(this,'En')" checked>
+                    <input class="form-check-input" type="checkbox" name="gEn" id="gEn" onchange="gsatCheck(this,'En')" checked>
                     <label class="form-check-label" for="gEn">英文</label>
-                    <input class="form-check-input" type="checkbox" name="gMa" onchange="gsatCheck(this,'Ma')" checked>
+                    <input class="form-check-input" type="checkbox" name="gMa" id="gMa" onchange="gsatCheck(this,'Ma')" checked>
                     <label class="form-check-label" for="gMa">數Ａ</label>
-                    <input class="form-check-input" type="checkbox" name="gMb" onchange="gsatCheck(this,'Mb')" checked>
+                    <input class="form-check-input" type="checkbox" name="gMb" id="gMb" onchange="gsatCheck(this,'Mb')" checked>
                     <label class="form-check-label" for="gMb">數Ｂ</label>
-                    <input class="form-check-input" type="checkbox" name="gSo" onchange="gsatCheck(this,'So')" checked>
+                    <input class="form-check-input" type="checkbox" name="gSo" id="gSo" onchange="gsatCheck(this,'So')" checked>
                     <label class="form-check-label" for="gSo">社會</label>
-                    <input class="form-check-input" type="checkbox" name="gSc" onchange="gsatCheck(this,'Sc')" checked>
+                    <input class="form-check-input" type="checkbox" name="gSc" id="gSc" onchange="gsatCheck(this,'Sc')" checked>
                     <label class="form-check-label" for="gSc">自然</label>
                 </div>
                 <table class="my-1 border w-100">
@@ -2401,24 +2388,24 @@
                 <select class="form-select" id="astyear" aria-label="year" onchange="astYear(this.value);">
                     <option selected value="0">請選擇年度</option>
                     <option value="111" disabled>111</option>
-                    <option value="112" disabled>112</option>
+                    <option value="112">112</option>
                     <option value="113" disabled>113</option>
                 </select>
                 <div>
-                    <label class="form-check-label" for="subject">選擇考科：</label>
-                    <input class="form-check-input" type="checkbox" name="aM1" onchange="astCheck(this,'M1')" checked>
+                    <span>選擇考科：</span>
+                    <input class="form-check-input" type="checkbox" name="aM1" id="aM1" onchange="astCheck(this,'M1')" checked>
                     <label class="form-check-label" for="aM1">數甲</label>
-                    <input class="form-check-input" type="checkbox" name="aHi" onchange="astCheck(this,'Hi')" checked>
+                    <input class="form-check-input" type="checkbox" name="aHi" id="aHi" onchange="astCheck(this,'Hi')" checked>
                     <label class="form-check-label" for="aHi">歷史</label>
-                    <input class="form-check-input" type="checkbox" name="aGe" onchange="astCheck(this,'Ge')" checked>
+                    <input class="form-check-input" type="checkbox" name="aGe" id="aGe" onchange="astCheck(this,'Ge')" checked>
                     <label class="form-check-label" for="aGe">地理</label>
-                    <input class="form-check-input" type="checkbox" name="aCi" onchange="astCheck(this,'Ci')" checked>
+                    <input class="form-check-input" type="checkbox" name="aCi" id="aCi" onchange="astCheck(this,'Ci')" checked>
                     <label class="form-check-label" for="aCi">公民</label>
-                    <input class="form-check-input" type="checkbox" name="aPh" onchange="astCheck(this,'Ph')" checked>
+                    <input class="form-check-input" type="checkbox" name="aPh" id="aPh" onchange="astCheck(this,'Ph')" checked>
                     <label class="form-check-label" for="aPh">物理</label>
-                    <input class="form-check-input" type="checkbox" name="aCm" onchange="astCheck(this,'Cm')" checked>
+                    <input class="form-check-input" type="checkbox" name="aCm" id="aCm" onchange="astCheck(this,'Cm')" checked>
                     <label class="form-check-label" for="aCm">化學</label>
-                    <input class="form-check-input" type="checkbox" name="aBi" onchange="astCheck(this,'Bi')" checked>
+                    <input class="form-check-input" type="checkbox" name="aBi" id="aBi" onchange="astCheck(this,'Bi')" checked>
                     <label class="form-check-label" for="aBi">生物</label>
                 </div>
                 <table class="my-2 border w-100">
