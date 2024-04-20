@@ -1,4 +1,5 @@
 # 臺灣升學考試對答網
+升學考試成績單只會給等級或級分，不會給原始分數，但拿著官網的解答一題一題對答算分，既麻煩又有答案對錯、分數算錯的可能，本網站因此不便而誕生。
 
 ## 使用說明
 請依下方說明及參考下方範例進行填答，否則可能導致最終核對結果有誤。
@@ -10,7 +11,7 @@
 ## 問題反饋
 如您使用本網站時遇到任何問題，可採取以下方式：
 
-1. 至本專案之GitHub repo提出issue，[請點此](https://github.com/BlueBoy247/TW-AnsCheck/issues/new)（需有GitHub帳號）
+1. 至本專案之GitHub repo提出issue，[請點此提交new issue](https://github.com/BlueBoy247/TW-AnsCheck/issues/)（需有GitHub帳號）
 2. 寄信至[uudenden.fly+ongithub@gmail.com](mailto:uudenden.fly+ongithub@gmail.com)，主旨請填「臺灣升學考試對答網-問題反饋」
 3. 至我的個人網站填寫[聯絡表單](https://blueboy247.github.io/about/#form)，聯絡目的請選「一般聯絡」
 
@@ -24,9 +25,12 @@ JSON檔案模板[請點此](https://github.com/BlueBoy247/TW-AnsCheck/tree/main/
 
 ### JSON檔案說明
 單選題答案為字串形式，範例：`"A"`。<br>
-多選題答案為陣列形式，範例：`["B","C","E"]`、`["2","3","5"]`。<br>
+多選題答案為陣列形式，第0項為該題選項數量（整數形式），後面為按A-Z、0-9順序排列的答案（字串形式），範例：`[6,"BCF"]`、`[5,"23"]`。<br>
 選填題答案為字串形式，範例：`"-33"`、`"1445"`。<br>
 非選題請輸入`"/"`，多餘的選項維持`""`、分數維持0分即可即可。
+
+## 贊助專案
+如您願意贊助本專案，[請點此](https://paypal.me/blueboy2472779)。欲指定贊助款項用途，請於說明欄填寫「贊助臺灣升學考試對答網」。
 
 ## 相關連結
 * [大學入學考試中心官網](https://www.ceec.edu.tw/)
