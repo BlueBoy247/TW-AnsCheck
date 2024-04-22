@@ -1,5 +1,5 @@
 # 臺灣升學考試對答網
-升學考試成績單只會給等級或級分，不會給原始分數，但拿著官網的解答一題一題對答算分，既麻煩又有答案對錯、分數算錯的可能，本網站因此不便而誕生。
+升學考試成績單只會給等級或級分，不會給原始分數，但拿著官網的解答一題一題對答算分，既麻煩又有答案對錯、分數算錯的可能，本網站正是為解決此不便而誕生。
 
 ## 使用說明
 請依下方說明及參考下方範例進行填答，否則可能導致最終核對結果有誤。
@@ -35,3 +35,5 @@ JSON檔案模板[請點此](https://github.com/BlueBoy247/TW-AnsCheck/tree/main/
 ## 相關連結
 * [大學入學考試中心官網](https://www.ceec.edu.tw/)
 * [國中教育會考官網](https://cap.rcpet.edu.tw/)
+### 本站使用資源
+* Favicon: [Taiwan icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/taiwan)
