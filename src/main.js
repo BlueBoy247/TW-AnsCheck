@@ -27,7 +27,7 @@ function gsatYear(gYear){
     if(gYear == 0){
         return;
     }
-    const requestURL = location.href+'data/gsat/'+gYear+'.json';
+    const requestURL = 'https://tw-anscheck.pages.dev/data/gsat/'+gYear+'.json';
     const request = new XMLHttpRequest();
     request.open('GET', requestURL);
     request.responseType = 'json';
