@@ -1,0 +1,41 @@
+{
+    "short_name": "臺灣升學考試對答",
+    "name": "TW-AnsCheck: 臺灣升學考試對答",
+    "icons": [
+      {
+        "src": "src/icon48.png",
+        "type": "image/png",
+        "sizes": "48x48",
+        "purpose": "maskable"
+      },
+      {
+        "src": "src/icon96.png",
+        "type": "image/png",
+        "sizes": "96x96",
+        "purpose": "maskable"
+      },
+      {
+        "src": "src/icon144.png",
+        "type": "image/png",
+        "sizes": "144x144"
+      },
+      {
+        "src": "src/icon192.png",
+        "type": "image/png",
+        "sizes": "192x192",
+        "purpose": "maskable"
+      },
+      {
+        "src": "src/icon512.png",
+        "type": "image/png",
+        "sizes": "512x512",
+        "purpose": "maskable"
+      }
+    ],
+    "id": ".",
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#ffffff",
+    "prefer_related_applications": true
+  }
