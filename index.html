@@ -11,7 +11,6 @@
     <!--import sources-->
     <link rel="icon" type="image/x-icon" href="./src/favicon.ico">
     <link rel="apple-touch-icon" href="./src/icon192.png">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" as="style">
     <link rel="preload" href="./src/main.js" as="script">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <script async src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>    
@@ -96,7 +95,7 @@
                 </p>
             </div>
             <div class="tab-pane fade p-3" id="gsat" role="tabpanel" aria-labelledby="gsat-tab">
-                <select class="form-select" id="gsatyear" aria-label="year" onchange="gsatYear(this.value);">
+                <select class="form-select" id="gsatyear" aria-label="year" onchange="examYear(this.value,'gsat');">
                     <option selected value="0">請選擇年度</option>
                     <option value="111" disabled>111</option>
                     <option value="112" disabled>112</option>
@@ -104,17 +103,17 @@
                 </select>
                 <div class="my-2">
                     <span>選擇考科：</span>
-                    <input class="form-check-input" type="checkbox" name="gCh" id="gCh" onchange="gsatCheck(this,'Ch')" checked>
+                    <input class="form-check-input" type="checkbox" name="gCh" id="gCh" onchange="subjectCheck(this,'Ch','GS')" checked>
                     <label class="form-check-label" for="gCh">國文</label>
-                    <input class="form-check-input" type="checkbox" name="gEn" id="gEn" onchange="gsatCheck(this,'En')" checked>
+                    <input class="form-check-input" type="checkbox" name="gEn" id="gEn" onchange="subjectCheck(this,'En','GS')" checked>
                     <label class="form-check-label" for="gEn">英文</label>
-                    <input class="form-check-input" type="checkbox" name="gMa" id="gMa" onchange="gsatCheck(this,'Ma')" checked>
+                    <input class="form-check-input" type="checkbox" name="gMa" id="gMa" onchange="subjectCheck(this,'Ma','GS')" checked>
                     <label class="form-check-label" for="gMa">數Ａ</label>
-                    <input class="form-check-input" type="checkbox" name="gMb" id="gMb" onchange="gsatCheck(this,'Mb')" checked>
+                    <input class="form-check-input" type="checkbox" name="gMb" id="gMb" onchange="subjectCheck(this,'Mb','GS')" checked>
                     <label class="form-check-label" for="gMb">數Ｂ</label>
-                    <input class="form-check-input" type="checkbox" name="gSo" id="gSo" onchange="gsatCheck(this,'So')" checked>
+                    <input class="form-check-input" type="checkbox" name="gSo" id="gSo" onchange="subjectCheck(this,'So','GS')" checked>
                     <label class="form-check-label" for="gSo">社會</label>
-                    <input class="form-check-input" type="checkbox" name="gSc" id="gSc" onchange="gsatCheck(this,'Sc')" checked>
+                    <input class="form-check-input" type="checkbox" name="gSc" id="gSc" onchange="subjectCheck(this,'Sc','GS')" checked>
                     <label class="form-check-label" for="gSc">自然</label>
                 </div>
                 <table class="my-2 border w-100">
@@ -165,7 +164,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <button type="button" class="btn btn-success w-100 my-2" onclick="gsatAnswer()">核對</button>
+                <button type="button" class="btn btn-success w-100 my-2" onclick="checkAnswer('gsat');">核對</button>
                 <form>
                     <table class="border">
                         <thead>
@@ -2400,10 +2399,10 @@
                         </tbody>
                     </table>
                 </form>
-                <button type="button" class="btn btn-success w-100 my-2" onclick="gsatAnswer()">核對</button>
+                <button type="button" class="btn btn-success w-100 my-2" onclick="checkAnswer('gsat');">核對</button>
             </div>
             <div class="tab-pane fade p-3" id="ast" role="tabpanel" aria-labelledby="ast-tab">
-                <select class="form-select" id="astyear" aria-label="year" onchange="astYear(this.value);">
+                <select class="form-select" id="astyear" aria-label="year" onchange="examYear(this.value,'ast');">
                     <option selected value="0">請選擇年度</option>
                     <option value="111" disabled>111</option>
                     <option value="112">112</option>
@@ -2411,19 +2410,19 @@
                 </select>
                 <div>
                     <span>選擇考科：</span>
-                    <input class="form-check-input" type="checkbox" name="aM1" id="aM1" onchange="astCheck(this,'M1')" checked>
+                    <input class="form-check-input" type="checkbox" name="aM1" id="aM1" onchange="subjectCheck(this,'M1','AS')" checked>
                     <label class="form-check-label" for="aM1">數甲</label>
-                    <input class="form-check-input" type="checkbox" name="aHi" id="aHi" onchange="astCheck(this,'Hi')" checked>
+                    <input class="form-check-input" type="checkbox" name="aHi" id="aHi" onchange="subjectCheck(this,'Hi','AS')" checked>
                     <label class="form-check-label" for="aHi">歷史</label>
-                    <input class="form-check-input" type="checkbox" name="aGe" id="aGe" onchange="astCheck(this,'Ge')" checked>
+                    <input class="form-check-input" type="checkbox" name="aGe" id="aGe" onchange="subjectCheck(this,'Ge','AS')" checked>
                     <label class="form-check-label" for="aGe">地理</label>
-                    <input class="form-check-input" type="checkbox" name="aCi" id="aCi" onchange="astCheck(this,'Ci')" checked>
+                    <input class="form-check-input" type="checkbox" name="aCi" id="aCi" onchange="subjectCheck(this,'Ci','AS')" checked>
                     <label class="form-check-label" for="aCi">公民</label>
-                    <input class="form-check-input" type="checkbox" name="aPh" id="aPh" onchange="astCheck(this,'Ph')" checked>
+                    <input class="form-check-input" type="checkbox" name="aPh" id="aPh" onchange="subjectCheck(this,'Ph','AS')" checked>
                     <label class="form-check-label" for="aPh">物理</label>
-                    <input class="form-check-input" type="checkbox" name="aCm" id="aCm" onchange="astCheck(this,'Cm')" checked>
+                    <input class="form-check-input" type="checkbox" name="aCm" id="aCm" onchange="subjectCheck(this,'Cm','AS')" checked>
                     <label class="form-check-label" for="aCm">化學</label>
-                    <input class="form-check-input" type="checkbox" name="aBi" id="aBi" onchange="astCheck(this,'Bi')" checked>
+                    <input class="form-check-input" type="checkbox" name="aBi" id="aBi" onchange="subjectCheck(this,'Bi','AS')" checked>
                     <label class="form-check-label" for="aBi">生物</label>
                 </div>
                 <table class="my-2 border w-100">
@@ -2472,7 +2471,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <button type="button" class="btn btn-success w-100 my-2" onclick="astAnswer()">核對</button>
+                <button type="button" class="btn btn-success w-100 my-2" onclick="checkAnswer('ast');">核對</button>
                 <form>
                     <table class="border">
                         <thead>
@@ -5320,7 +5319,7 @@
                         </tbody>
                     </table>
                 </form>
-                <button type="button" class="btn btn-success w-100 my-2" onclick="astAnswer()">核對</button>
+                <button type="button" class="btn btn-success w-100 my-2" onclick="checkAnswer('ast');">核對</button>
             </div>
             <div class="tab-pane fade p-3" id="cap" role="tabpanel" aria-labelledby="cap-tab">...</div>
         </div>
