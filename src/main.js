@@ -72,7 +72,7 @@ function checkAnswer(exam){
     const request = getJSON(exam, year);
     request.onload = function(){
         const data = request.response, sub = document.getElementsByClassName("form-check-input");
-        let correctAns = null, scoreData = null, errorMes = "";
+        let correctAns = null, scoreData = null, errorMes = "", range = 0;
         for(const element of subjectList[exam]){
             if(sub[exam[0]+element[1]].checked){
                 correctAns = data[element[0]]["Ans"];
@@ -191,9 +191,9 @@ function answerBlockColor(ansBlock, color){
 function chineseWritng(){
     let writingScore = 0, errorMesReturn = "", fullScore = 25;
     for(let i=1;i<=2;i++){
-        ansId = `Ch-w${i}`;
-        ansBlock = document.getElementById(ansId);
-        ans = Number(ansBlock.value);
+        let ansId = `Ch-w${i}`;
+        let ansBlock = document.getElementById(ansId);
+        let ans = Number(ansBlock.value);
         if(ans <= fullScore && ans > 0){
             writingScore += ans;
             if(ans == fullScore){
