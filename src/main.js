@@ -35,10 +35,6 @@ function getJSON(exam ,year){
     return request;
 }
 
-function getJSONError(){
-    alert("取得解答資料時發生錯誤，您可以進行問題反饋，通知開發者進行檢查和修正。");
-}
-
 function examYear(year, exam){
     if(year == 0){
         return;
@@ -61,7 +57,9 @@ function examYear(year, exam){
             }
         }
     }
-    request.onerror = getJSONError();
+    request.onerror = function(){
+        alert("取得解答資料時發生錯誤，您可以進行問題反饋，通知開發者進行檢查和修正。");
+    }
 }
 
 function checkAnswer(exam){
@@ -99,7 +97,9 @@ function checkAnswer(exam){
             alert(errorMes);
         }
     }
-    request.onerror = getJSONError();
+    request.onerror = function(){
+        alert("取得解答資料時發生錯誤，您可以進行問題反饋，通知開發者進行檢查和修正。");
+    }
 }
 
 function processSubject(subject, prefix, correctAns, scoreData){
