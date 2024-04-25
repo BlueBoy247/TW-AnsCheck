@@ -26,6 +26,10 @@
         }
         table{
             width: 100%;
+            caption-side: top;
+        }
+        caption{
+            color: black;
         }
         .form-control{
             width: 75px;
@@ -117,6 +121,7 @@
                     <label class="form-check-label" for="gSc">自然</label>
                 </div>
                 <table class="my-2 border w-100">
+                    <caption>分數資訊：</caption>
                     <thead>
                         <tr>
                             <th class="text-center border"></th>
@@ -167,6 +172,7 @@
                 <button type="button" class="btn btn-success w-100 my-2" onclick="checkAnswer('gsat');">核對</button>
                 <form>
                     <table class="border">
+                        <caption>填答區：</caption>
                         <thead>
                             <tr class="border">
                                 <th class="text-center border">科目</th>
@@ -2426,6 +2432,7 @@
                     <label class="form-check-label" for="aBi">生物</label>
                 </div>
                 <table class="my-2 border w-100">
+                    <caption>分數資訊：</caption>
                     <thead>
                         <tr>
                             <th class="text-center border"></th>
@@ -2474,6 +2481,7 @@
                 <button type="button" class="btn btn-success w-100 my-2" onclick="checkAnswer('ast');">核對</button>
                 <form>
                     <table class="border">
+                        <caption>填答區：</caption>
                         <thead>
                             <tr class="border">
                                 <th class="text-center border">科目</th>
