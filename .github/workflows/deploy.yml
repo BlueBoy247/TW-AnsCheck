@@ -12,10 +12,8 @@ on:
 jobs:
   deploy:
     permissions:
-      actions: read # Only required for private GitHub Repo
       contents: read
       deployments: write
-      pull-requests: write
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -23,7 +21,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm run build
       - name: Deploy to Cloudflare Pages
         uses: andykenward/github-actions-cloudflare-pages@v2.1.0
         id: pages
