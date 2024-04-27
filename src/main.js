@@ -214,9 +214,9 @@ function chineseWritng(){
 function englishWriting(){
     let writingScore = 0, errorMesReturn = "", fullScore = [8, 20], i = 1;
     for(const fs of fullScore){
-        ansId = `En-w${i}`;
-        ansBlock = document.getElementById(ansId);
-        ans = Number(ansBlock.value);
+        let ansId = `En-w${i}`;
+        let ansBlock = document.getElementById(ansId);
+        let ans = Number(ansBlock.value);
         if(ans <= fs && ans > 0){
             writingScore += ans;
             if(ans == fs){
