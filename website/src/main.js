@@ -48,6 +48,7 @@ function examYear(year, exam){
             for(let i=0;i<length;i++){
                 fill0 = i<9 ? "0" : ""; // 題號1~9前面補零
                 inputBox = document.getElementById(`${element[1]}-q${fill0}${i+1}`); // id例：Ch-q01、Ch-q12
+                inputBox.removeAttribute("style");
                 if(data[i] == 0){ // 分數為0表示沒有該題，禁用該輸入框
                     inputBox.setAttribute("disabled",true);
                     inputBox.value = "";
@@ -56,6 +57,10 @@ function examYear(year, exam){
                 }
             }
         }
+        document.getElementById("Ch-w1").removeAttribute("style");
+        document.getElementById("Ch-w2").removeAttribute("style");
+        document.getElementById("En-w1").removeAttribute("style");
+        document.getElementById("En-w2").removeAttribute("style");
     }
     request.onerror = function(){
         alert("取得解答資料時發生錯誤，您可以進行問題反饋，通知開發者進行檢查和修正。");
