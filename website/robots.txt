@@ -1,4 +1,3 @@
 user-agent: *
-disallow: /.github/
 
 Sitemap: https://tw-anscheck.pages.dev/sitemap.xml
