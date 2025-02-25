@@ -74,6 +74,7 @@ function checkAnswer(exam){
         alert("請選擇年度");
         return;
     }
+    document.getElementById(`${exam}year`).style.backgroundColor = "";
     const request = getJSON(exam, year);
     request.onload = function(){
         const data = request.response, sub = document.getElementsByClassName("form-check-input");
@@ -145,26 +146,24 @@ function singleScoreCalculator(ans, correctAns, score, ansBlock){ // 單選題&�
 }
 
 function multipleScoreCalculator(ans, correctAns, choiceQuantity, score, ansBlock){ // 多選題計分
-    let multi = 0, multiScore = 0;
-    for(const a of ans){
-        for(const correctA of correctAns){
-            if(a == correctA){
-                multi += 1;
-                break;
-            }
-        }
-    }
-    if(multi == correctAns.length){ // 答對選項個數與正解選項個數相同（滿分）
+    let diff = Array.from(ans).filter((e) => {
+        return Array.from(correctAns).indexOf(e) === -1;
+    }).concat(Array.from(correctAns).filter((e) => {
+        return Array.from(ans).indexOf(e) === -1;
+    }));
+    if(diff == 0 && ans.length == correctAns.length){ // 答錯選項個數為零且有作答（滿分）
         answerBlockColor(ansBlock, "LightGreen");
         return score;
-    }else if(choiceQuantity > 2*Math.abs(correctAns.length-multi) && ans != ""){ // 有分數
-        multiScore = score * (choiceQuantity-2*Math.abs(correctAns.length-multi));
-        answerBlockColor(ansBlock, "LightYellow");
-        multiScore /= choiceQuantity;
-        return multiScore;
-    }else{ // 零分
-        answerBlockColor(ansBlock, "LightPink");
-        return 0;
+    }else{
+        let multiScore = score * (choiceQuantity - 2 * diff.length) / choiceQuantity;
+        if(multiScore > 0 && ans.length > 0){ // 有分數且有作答
+            answerBlockColor(ansBlock, "LightYellow");
+            return multiScore;
+        }
+        else{ // 分數低於零分或未作答
+            answerBlockColor(ansBlock, "LightPink");
+            return 0;
+        }
     }
 }
 
